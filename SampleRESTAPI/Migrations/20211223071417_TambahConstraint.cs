@@ -7,7 +7,7 @@ namespace SampleRESTAPI.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "LastName",
+                name: "FirstName",
                 table: "Students",
                 type: "nvarchar(100)",
                 maxLength: 100,
@@ -18,7 +18,7 @@ namespace SampleRESTAPI.Migrations
                 oldNullable: true);
 
             migrationBuilder.AlterColumn<string>(
-                name: "FirstName",
+                name: "LastName",
                 table: "Students",
                 type: "nvarchar(100)",
                 maxLength: 100,
@@ -27,6 +27,7 @@ namespace SampleRESTAPI.Migrations
                 oldClrType: typeof(string),
                 oldType: "nvarchar(max)",
                 oldNullable: true);
+
 
             migrationBuilder.AlterColumn<string>(
                 name: "Title",
