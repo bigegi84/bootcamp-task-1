@@ -11,7 +11,8 @@ namespace SampleRESTAPI.Migrations
                 name: "Authors",
                 columns: table => new
                 {
-                    AuhthorID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    AuthorID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -19,7 +20,7 @@ namespace SampleRESTAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Authors", x => x.AuhthorID);
+                    table.PrimaryKey("PK_Authors", x => x.AuthorID);
                 });
 
             migrationBuilder.CreateTable(
@@ -28,8 +29,8 @@ namespace SampleRESTAPI.Migrations
                 {
                     CourseID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Credits = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AuthorID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -38,7 +39,7 @@ namespace SampleRESTAPI.Migrations
                     table.ForeignKey(
                         name: "FK_Courses_Authors_AuthorID",
                         column: x => x.AuthorID,
-                        principalTable: "AuthorID",
+                        principalTable: "Authors",
                         principalColumn: "AuthorID",
                         onDelete: ReferentialAction.Cascade);
                 });

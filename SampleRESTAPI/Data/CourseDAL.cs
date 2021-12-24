@@ -80,7 +80,7 @@ namespace SampleRESTAPI.Data
                 var result = await GetById(id);
                 if (result == null) throw new Exception($"data course id {id} tidak ditemukan");
                 result.Title = obj.Title;
-                result.Credits = obj.Credits;
+                //result.Credits = obj.Credits;
                 await _db.SaveChangesAsync();
                 return result;
             }

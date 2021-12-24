@@ -33,11 +33,11 @@ namespace SampleRESTAPI.Data
 
             var courses = new Course[]
             {
-                new Course{Title="Cloud Fundamentals",Credits=3},
-                new Course{Title="Microservices Architecture",Credits=3},
-                new Course{Title="Frontend Programming",Credits=3},
-                new Course{Title="Backend RESTful API",Credits=3},
-                new Course{Title="Entity Frmework Core",Credits=3}
+                new Course{Title="Cloud Fundamentals",Description="Test",AuthorID=1},
+                new Course{Title="Microservices Architecture",Description="Test",AuthorID=1},
+                new Course{Title="Frontend Programming",Description="Test",AuthorID=1},
+                new Course{Title="Backend RESTful API",Description="Test",AuthorID=1},
+                new Course{Title="Entity Frmework Core",Description="Test",AuthorID=1}
             };
 
             foreach (var c in courses)

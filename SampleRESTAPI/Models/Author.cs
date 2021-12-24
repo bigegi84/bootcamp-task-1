@@ -5,16 +5,16 @@ namespace SampleRESTAPI.Models
 {
     public class Author
     {
-        public Guid Id { get; set; }
-        [Required]
+        public int AuthorID { get; set; }
+        [Required(ErrorMessage = "FirstName harus di isi.")]
         [MaxLength(50)]
         public string FirstName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "LastName harus di isi.")]
         [MaxLength(50)]
         public string LastName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "DateOfBirth harus di isi.")]
         public DateTime DateOfBirth { get; set; }
-        [Required]
+        [Required(ErrorMessage = "MainCategory harus di isi.")]
         [MaxLength(50)]
         public string MainCategory { get; set; }
     }
