@@ -33,8 +33,10 @@ namespace SampleRESTAPI
             services.AddDbContext<ApplicationDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("LocalConnection")));
 
-            services.AddScoped<IStudent, StudentDAL>();
+            services.AddScoped<IAuthor, AuthorDAL>();
             services.AddScoped<ICourse, CourseDAL>();
+
+            services.AddScoped<IStudent, StudentDAL>();
             services.AddScoped<IEnrollment, EnrollmentDAL>();
 
             //services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);

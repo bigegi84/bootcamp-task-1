@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace SampleRESTAPI.Dtos
@@ -10,7 +11,7 @@ namespace SampleRESTAPI.Dtos
         [Required]
         public string LastName { get; set; }
         [Required]
-        public string DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
         [Required]
         public string MainCategory { get; set; }
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)

@@ -26,10 +26,10 @@ namespace SampleRESTAPI.Controllers
         // GET: api/<CoursesController>
        
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CourseDto>>> Get()
+        public async Task<ActionResult<IEnumerable<AuthorDto>>> Get()
         { 
             var results = await _author.GetAll();
-            return Ok(_mapper.Map<IEnumerable<CourseDto>>(results));
+            return Ok(_mapper.Map<IEnumerable<AuthorDto>>(results));
         }
 
         // GET api/<CoursesController>/5
@@ -45,11 +45,11 @@ namespace SampleRESTAPI.Controllers
 
         // POST api/<CoursesController>
         [HttpPost]
-        public async Task<ActionResult<CourseDto>> Post([FromBody] AuthorForCreateDto courseForCreateDto)
+        public async Task<ActionResult<AuthorDto>> Post([FromBody] AuthorForCreateDto body)
         {
             try
             {
-                var data = _mapper.Map<Models.Author>(courseForCreateDto);
+                var data = _mapper.Map<Models.Author>(body);
                 var result = await _author.Insert(data);
                 var coursedto = _mapper.Map<Dtos.AuthorDto>(result);
                 return Ok(coursedto);  
@@ -62,13 +62,13 @@ namespace SampleRESTAPI.Controllers
 
         // PUT api/<CoursesController>/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<CourseDto>> Put(int id, [FromBody] CourseForCreateDto courseToCreateDto)
+        public async Task<ActionResult<AuthorDto>> Put(int id, [FromBody] AuthorForCreateDto courseToCreateDto)
         {
             try
             {
                 var course = _mapper.Map<Models.Author>(courseToCreateDto);
                 var result = await _author.Update(id.ToString(), course);
-                var coursedto = _mapper.Map<Dtos.CourseDto>(result);
+                var coursedto = _mapper.Map<Dtos.AuthorDto>(result);
                 return Ok(coursedto);
             }
             catch (Exception ex)
