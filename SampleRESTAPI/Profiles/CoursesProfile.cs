@@ -6,11 +6,11 @@ namespace SampleRESTAPI.Profiles
     {
         public CoursesProfile()
         {
-            //CreateMap<Models.Course, Dtos.CourseDto>()
-            //    .ForMember(dest => dest.TotalHours,
-            //    opt => opt.MapFrom(src => src.Credits * 1.5));
+            CreateMap<Dtos.CourseDto,Models.Course>();
+            CreateMap<Models.Course,Dtos.CourseDto>();
 
-            CreateMap<Dtos.CourseForCreateDto, Models.Course>();
+            CreateMap<Dtos.CourseForCreateDto,Models.Course>();
+            CreateMap<Models.Course,Dtos.CourseForCreateDto>();
         }
     }
 }

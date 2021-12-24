@@ -8,7 +8,7 @@ namespace SampleRESTAPI.Dtos
 
         public string Title { get; set; }
 
-        public int TotalHours { get; set; }
+        public string Description { get; set; }
 
     }
 }
